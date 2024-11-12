@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Project Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-container {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+      }
+  
+        .navbar-custom {
+            background-color: rgba(227, 219, 219, 0.59);
+            border-radius: 20px;
+            padding: 10px 20px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-custom .nav-link {
+            color: black !important;
+            margin: 0 10px;
+        }
+
+        .container {
+            flex: 1;
+            padding-top: 20px;
+        }
+
+        .elevated-div {
+            padding: 20px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .heading {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control, .btn {
+            border-radius: 5px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <a class="navbar-brand" href="#"><img src="C:\Users\lwena\Desktop\assignment 1\images\logo2.png" alt="AEI logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="inde.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newproj.html">New Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Project Progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+  
+    <div class="container">
+        <div class="elevated-div">
+            <h1 class="heading">Apply for a Construction Project</h1>
+            <form>
+                <div class="form-group">
+                    <label for="projectName" class="form-label">Project Name</label>
+                    <input type="text" class="form-control" id="projectName" placeholder="Enter project name" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientName" class="form-label">Client Name</label>
+                    <input type="text" class="form-control" id="clientName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Project Description</label>
+                    <textarea class="form-control" id="description" rows="4" placeholder="Describe the project" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="budget" class="form-label">Estimated Budget</label>
+                    <input type="number" class="form-control" id="budget" placeholder="Enter estimated budget" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" onclick="window.location.href='inde.html'">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+  
+    <div class="footer">
+        <p>&copy; 2024 AEI CMIS. All rights reserved.</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+    </div>
+
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navbar-placeholder").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading navbar:", error));
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

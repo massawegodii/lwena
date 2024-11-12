@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report</title>
+    <style>
+     
+     
+
+ 
+     .navbar-container {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+      }
+  
+      .navbar-custom {
+          background-color: rgba(227, 219, 219, 0.59);
+          border-radius: 20px;
+          padding: 10px 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  
+      .navbar-custom .nav-link {
+          color: black !important;
+          margin: 0 10px;
+      }
+  
+      .navbar-custom .navbar-brand img {
+          height: 20px;
+      }
+
+      }
+        .report-container {
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        .report-box {
+            justify-content: center;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .btn-info {
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+  
+
+        .chart-container {
+            position: relative;
+            margin-top: 40px;
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <a class="navbar-brand" href="#"><img src="C:\Users\lwena\Desktop\assignment 1\images\logo2.png" alt="AEI logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="inde.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newproj.html">New Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newproj.html">Project Progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container report-container">
+        <div class="report-box">
+            <h2 class="login-title">Project Report Summary</h2>
+            <div class="chart-container">
+                <canvas id="progressChart"></canvas>
+            </div>
+            <div class="btn-group mt-4">
+                <button class="btn btn-info">Cost Spent</button>
+                <button class="btn btn-info">Expected Completion</button>
+                <button class="btn btn-info">Efficiency</button>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <p>&copy; 2024 Project Management Inc.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [
+                    {
+                        label: 'Project Completion (%)',
+                        data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Time Spent (hrs)',
+                        data: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
+                        borderColor: '#28a745',
+                        backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

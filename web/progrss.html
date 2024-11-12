@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Progress</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .navbar-container {
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+      }
+  
+      .navbar-custom {
+          background-color: rgba(227, 219, 219, 0.59);
+          border-radius: 20px;
+          padding: 10px 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  
+      .navbar-custom .nav-link {
+          color: black !important;
+          margin: 0 10px;
+      }
+  
+      .navbar-custom .navbar-brand img {
+          height: 20px;
+      }
+
+      .elevated-div {
+          position: relative;
+          padding: 20px;
+          background-color: #f8f9fa;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          text-align: center;
+      }
+
+      /* Footer Style */
+      .footer {
+          background-color: #333;
+          color: white;
+          text-align: center;
+          padding: 20px 0;
+          position: relative;
+          margin-top: auto;
+          width: 100%;
+      }
+
+      .footer a {
+          color: #fff;
+          text-decoration: none;
+          margin: 0 10px;
+      }
+
+      .footer a:hover {
+          text-decoration: underline;
+      }
+
+      .content {
+          flex: 1;
+          overflow-y: auto;
+      }
+
+  
+      .circle-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 30px;
+      }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <a class="navbar-brand" href="#"><img src="C:\Users\lwena\Desktop\assignment 1\images\logo2.png" alt="AEI logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="inde.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newproj.html">New Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newproj.html">Project Progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Log out</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container mt-5 content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="elevated-div">
+                    <h1 class="heading">Project Progress</h1>
+                    <p class="subheading">Track the progress of your ongoing projects with real-time data and visualize how much work has been completed. This page gives you a clear overview of project timelines, tasks completed, and upcoming milestones.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="circle-container">
+        <svg width="120" height="120">
+            <circle cx="60" cy="60" r="50" stroke="#ddd" stroke-width="10" fill="none"/>
+            <circle class="progress-circle" cx="60" cy="60" r="50" stroke="green" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
+        </svg>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 AEI CMIS. All rights reserved.</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var circle = document.querySelector('.progress-circle');
+          var progress = 75;
+          var radius = circle.r.baseVal.value;
+          var circumference = 2 * Math.PI * radius;
+
+          circle.style.strokeDasharray = circumference;
+          circle.style.strokeDashoffset = circumference;
+
+          var offset = circumference - (progress / 100) * circumference;
+          circle.style.transition = 'stroke-dashoffset 1s ease';
+          circle.style.strokeDashoffset = offset;
+      });
+    </script>
+
+</body>
+</html>
